@@ -81,7 +81,7 @@ def is_safe_to_cross(traffic_light: str, pedestrian_signal: str) -> bool:
 # Number 9: Leap Year
 
 def is_leap_year(year: int) -> bool:
-    return year % 4 == 0 # this problem was kinda weird, solution might not be right
+    return year % 4 == 0 and year % 400 == 0 or year % 100 != 0
 
 # is_leap_year(1900)
 # is_leap_year(2000)
