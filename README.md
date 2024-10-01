@@ -11,3 +11,5 @@ Don't expect the code to be formatted, don't have time for that :)
 ## Authors
 
 - [Tima Gezalov](https://github.com/timagez), Dr. Howard's 24-25 4th period AP-CSP class
+
+- This repository is now part of the [College Park APCSP Organization](https://github.com/collegeparkapcsp)!
