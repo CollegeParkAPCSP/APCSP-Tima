@@ -13,15 +13,15 @@ tina.penup()
 # START-----------------------------------------------------
 
 def draw_square(xPos, yPos, turt, n):
-    turt.goto(xPos, yPos)
-    turt.pendown()
-    turt.begin_fill()
-    for i in range(4):
-        turt.forward(n)
-        turt.right(90)
+    turt.goto(xPos, yPos) # goes to user input
+    turt.pendown() 
+    turt.begin_fill() # starts fill
+    for i in range(4): # for loop to draw square
+        turt.forward(n) # moves forward n units (side length)
+        turt.right(90) # turns right 90 degrees
     turt.end_fill()
     turt.penup()
-    return n*n
+    return n*n # returns area of square (side * side)
 
 def draw_circle(xPos, yPos, turt, r):
     turt.goto(xPos, yPos)
@@ -33,25 +33,25 @@ def draw_circle(xPos, yPos, turt, r):
     return math.pi * r * r
 
 def draw_reg_pentagon(xPos, yPos, turt, n):
-    turtle.goto(xPos, yPos)
-    turtle.pendown()
-    turtle.begin_fill()
+    turt.goto(xPos, yPos)
+    turt.pendown()
+    turt.begin_fill()
     for i in range(5):
-        turtle.forward(n)
-        turtle.right(72)
-    turtle.end_fill()
-    turtle.penup()
+        turt.forward(n)
+        turt.right(72)
+    turt.end_fill()
+    turt.penup()
     return 1/4 * math.sqrt(5 * (5 + 2 * math.sqrt(5))) * n * n
 
 def draw_triangle(xPos, yPos, turt, n):
     turt.goto(xPos, yPos)
-    turtle.pendown()
-    turtle.begin_fill()
+    turt.pendown()
+    turt.begin_fill()
     for i in range(3):
-        turtle.forward(n)
-        turtle.right(120)
-    turtle.end_fill()
-    turtle.penup()  
+        turt.forward(n)
+        turt.right(120)
+    turt.end_fill()
+    turt.penup()  
     return 1/4 * math.sqrt(3) * n * n 
 
 
@@ -124,7 +124,7 @@ def draw_shape(shape, xPos, yPos, size):
         draw_reg_decagon(xPos, yPos, tina, size)
         shapes_area = 1/4 * math.sqrt(10 + 2 * math.sqrt(5)) * size * size
     else: 
-        tina.write("Invalid shape")
+        print("Invalid shape")
     return shapes_area
 
 ushape = turtle.textinput("Shape Input", "What shape would you like to input?")
@@ -136,7 +136,26 @@ usize = turtle.numinput("Size", prompt, 0, 0, 100)
 
 draw_shape(ushape, ux, uy, usize)
 
-tina.goto(-60, -80)
 tina.write("The area of the shape is: " + str(draw_shape(ushape, ux, uy, usize)))
+
+ushape1 = turtle.textinput("Shape Input", "What shape would you like to input?")
+ux1 = turtle.numinput("X position", "What x value do you want tina to go to?", 0, -400, 400)
+uy1 = turtle.numinput("Y position", "What y value do you want tina to go to?", 0, -400, 400)
+prompt = "What size do you want your " + str(ushape1) + " to be?"
+usize1 = turtle.numinput("Size", prompt, 0, 0, 100)
+
+draw_shape(ushape1, ux1, uy1, usize1)
+
+tina.write("The area of the shape is: " + str(draw_shape(ushape1, ux1, uy1, usize1)))
+
+ushape2 = turtle.textinput("Shape Input", "What shape would you like to input?")
+ux2 = turtle.numinput("X position", "What x value do you want tina to go to?", 0, -400, 400)
+uy2 = turtle.numinput("Y position", "What y value do you want tina to go to?", 0, -400, 400)
+prompt = "What size do you want your " + str(ushape2) + " to be?"
+usize2 = turtle.numinput("Size", prompt, 0, 0, 100)
+
+draw_shape(ushape2, ux2, uy2, usize2)
+
+tina.write("The area of the shape is: " + str(draw_shape(ushape2, ux2, uy2, usize2)))
 
 turtle.done()
