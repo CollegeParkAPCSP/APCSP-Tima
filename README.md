@@ -2,11 +2,13 @@
 
 ## Purpose
 
-There is absolutely no purpose for this, I could've easily kept all these on my computer, 
+There is absolutely no purpose for this, I could've easily kept all these on my computer,
 but _**why not?**_ :o
 
 Solutions to the assignments from AP-CSP will be committed here every day we have one. <br/> 
 Don't expect the code to be formatted, don't have time for that :)
+
+**Somewhy, CodingBat is still on Python 2, so some functions (like match-case) aren't valid.**
 
 ## Authors
 
