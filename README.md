@@ -1,11 +1,8 @@
-# AP-CSP Assignments
+# APCSP-Tima
 
-## Purpose
+This is a catalog of an experienced programmer's solutions to APCSP assignments
 
-There is absolutely no purpose for this, I could've easily kept all these on my computer,
-but _**why not?**_ :o
-
-Solutions to the assignments from AP-CSP will be committed here every day we have one. <br/> 
+Solutions will be committed here every day. <br/> 
 Don't expect the code to be formatted, don't have time for that :)
 
 **Somewhy, CodingBat is still on Python 2, so some functions (like match-case) aren't valid.**
