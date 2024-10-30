@@ -11,4 +11,4 @@ Don't just copy my code, this is to help people understand what we're doing and 
 
 - [Tima Gezalov](https://github.com/timagez)
 
-- This repository is now part of the [College Park APCSP Organization](https://github.com/collegeparkapcsp)!
+This repository is now part of the [College Park APCSP Organization](https://github.com/collegeparkapcsp)!
