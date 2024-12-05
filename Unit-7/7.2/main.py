@@ -1,5 +1,6 @@
-def add_item(item:str, curr_list:list) -> None:
-    curr_list.append(item)
+def add_item(item:str, curr_list:list, amount:int) -> None:
+    for i in range(amount):
+        curr_list.append(item)
     
 def insert_item(item:str, index:int, curr_list:list) -> None:
     curr_list.insert(index, item)
@@ -11,9 +12,10 @@ def view_list(curr_list:list) -> None:
     for i in range(len(curr_list)):
         print(f"{i+1}. {curr_list[i]}")
         
-def remove_item(item:str, curr_list:list) -> None:
+def remove_item(item:str, curr_list:list, amount:int) -> None:
     try:
-        curr_list.remove(item)
+        for i in range(amount):
+            curr_list.remove(item)
     except:
         print("Item not found in the list")
 
@@ -56,13 +58,15 @@ while not end:
             case 1:
                 print("What item would you like to add?")
                 item = input()
+                print("How many would you like to add?")
+                amount = int(input())
                 match l:
                     case "kroger":
-                        add_item(item, kroger_list)
+                        add_item(item, kroger_list, amount)
                     case "heb":
-                        add_item(item, heb_list)
+                        add_item(item, heb_list, amount)
                     case "walmart":
-                        add_item(item, walmart_list)
+                        add_item(item, walmart_list, amount)
             case 2:
                 print("What item would you like to insert?")
                 item = input()
@@ -95,13 +99,15 @@ while not end:
             case 5:
                 print("What item would you like to remove?")
                 item = input()
+                print("How many would you like to remove?")
+                amount = int(input())
                 match l:
                     case "kroger":
-                        remove_item(item, kroger_list)
+                        remove_item(item, kroger_list, amount)
                     case "heb":
-                        remove_item(item, heb_list)
+                        remove_item(item, heb_list, amount)
                     case "walmart":
-                        remove_item(item, walmart_list)
+                        remove_item(item, walmart_list, amount)
             case 6:
                 print("At what index would you like to remove?")
                 index = int(input())
@@ -129,4 +135,4 @@ while not end:
                 
     print("Would you like to continue?")
     a = input()
-    end = True if a == "no" else False
+    end = True if "n" in a.lower() else False
