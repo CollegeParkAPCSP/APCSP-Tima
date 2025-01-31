@@ -1,8 +1,10 @@
 class Move:
-    def __init__(self, name:str, dmg:int, type:str) -> None:
+    def __init__(self, name:str, dmg:int, type:str, accuracy:float = .8, pp:int = 5) -> None:
         self.name = name
         self.dmg = dmg
         self.type = type
+        self.accuracy = accuracy
+        self.pp = pp
 
     def getDmg(self):
         return self.dmg

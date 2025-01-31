@@ -14,6 +14,11 @@ class Battle:
             self.p1.attack(self.p2)
             if self.p2.health>0:
                 self.p2.attack(self.p1)
+        else:
+            self.p2.attack(self.p1)
+            if self.p1.health>0:
+                self.p1.attack(self.p2)
+                
         print(self.toString())
 
     def playBattle(self) -> None:
