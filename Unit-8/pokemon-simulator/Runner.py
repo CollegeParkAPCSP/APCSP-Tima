@@ -14,7 +14,7 @@ play()
 
 """
 Extensions: 
-easy: health validation, critical hits, power points, type effectiveness
-medium: 
+easy: health validation, critical hits, move accuracy, type effectiveness
+medium: power points
 totals up to 1.5 points :)
 """
