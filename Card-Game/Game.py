@@ -1,21 +1,63 @@
-from Deck import *
-from Hand import *
+import random
 
-import curses
+class Card:
+    def __init__(self, suit, name):
+        self.suit = suit
+        self.name = name
+    
+    def __str__(self):
+        return f"{self.name} of {self.suit}"
+
+class Deck:
+    def __init__(self):
+        suits = ["Clubs", "Hearts", "Spades", "Diamonds"]
+        names = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+        self.cards = [Card(suit,name) for suit in suits for name in names]
+
+    def shuffle(self):
+        random.shuffle(self.cards)
+
+    def deal(self):
+        return self.cards.pop()
+    
+class Hand:
+    def __init__(self):
+        self.cards = []
+
+    def addCard(self, card):
+        self.cards.append(card)
+    
+    def getValue(self):
+        total = 0
+        aces = 0
+
+        for card in self.cards:
+            if card.name in ["J", "Q", "K"]:
+                total += 10
+            elif card.name == "A":
+                total += 11
+                aces += 1
+            else:
+                total += int(card.name)
+
+        while total > 21 and aces > 0:
+            total -= 10
+            aces -= 1
+
+        return total
+    
+    def __str__(self):
+        return ", ".join(str(card) for card in self.cards)
 
 class Game:
-    def __init__(self, stdscr: curses.window):
+    def __init__(self):
         self.deck = Deck()
         self.deck.shuffle()
         self.player_hand = Hand()
         self.dealer_hand = Hand()
-        self.stdscr = stdscr
-
-        curses.curs_set(0)
 
     def initial_deal(self):
-
-        for _ in range(2):
+        for i in range(2):
             self.player_hand.addCard(self.deck.deal())
             self.dealer_hand.addCard(self.deck.deal())
 
@@ -26,7 +68,10 @@ class Game:
             if self.player_hand.getValue() > 21:
                 print("You bust!")
                 return False
-            if self.player_hand.getValue() == 21:
+            if self.dealer_hand.getValue() == 21 and len(self.dealer_hand.cards) == 2:
+                print("Dealer has blackjack!")
+                return False
+            if self.player_hand.getValue() == 21 and len(self.player_hand.cards) == 2:
                 print("Blackjack!")
                 return False
             choice = input("Do you want to 'hit' or 'stand'? ").lower().strip()
@@ -62,32 +107,17 @@ class Game:
         print("Dealer's hand:", self.dealer_hand, f"(Value: {dealer_value})")
 
         if player_value > 21:
-            print("You busted! Dealer wins.")
+            print("\u001b[1;31mYou busted! Dealer wins.\u001b[0;37m")
         elif dealer_value > 21:
-            print("Dealer busted! You win.")
+            print("\u001b[1;32mDealer busted! You win.\u001b[0;37m")
         elif player_value > dealer_value:
-            print("You win!")
+            print("\u001b[1;32mYou win!\u001b[0;37m")
         elif player_value < dealer_value:
-            print("Dealer wins.")
+            print("\u001b[1;31mDealer wins.\u001b[0;37m")
         else:
-            print("Push! It's a tie.")
+            print("\u001b[1;37mPush! It's a tie.\u001b[0;37m")
 
     def play(self):
-        self.stdscr.clear()
-        height, width = self.stdscr.getmaxyx()
-
-        text = "omio punched me"
-
-        startx = int((width//2)-(len(text)//2))
-        starty = int(height//2)
-
-        # box = curses.newwin(3,30,12,50)
-        # box.box()
-        self.stdscr.addstr(starty, startx, text)
-
-        self.stdscr.refresh()
-        # box.refresh()
-
         self.initial_deal()
         print("------------- game ----------------")
         print("Dealer shows:", self.dealer_hand.cards[0])
@@ -97,9 +127,6 @@ class Game:
         self.dealer_turn()
         self.determine_winner()
 
-
-def main(stdscr):
-    game = Game(stdscr=stdscr)
+if __name__ == "__main__":
+    game = Game()
     game.play()
-
-curses.wrapper(main)
