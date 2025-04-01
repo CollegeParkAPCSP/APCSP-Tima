@@ -27,7 +27,7 @@ class Hand:
     def addCard(self, card):
         self.cards.append(card)
     
-    def getValue(self):
+    def getValue(self) -> int:
         total = 0
         aces = 0
 
