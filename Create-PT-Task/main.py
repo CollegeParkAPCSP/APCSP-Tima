@@ -36,4 +36,4 @@ try:
     else:
         print("Your final grade is: " + str(calculate(dailies, majors, dailyWeight=dailyWeight, majorWeight=majorWeight)))
 except:
-    print("error buddy")
+    print("Please enter valid values")
