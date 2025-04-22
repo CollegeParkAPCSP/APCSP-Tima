@@ -16,7 +16,7 @@ try:
             avgMajors /= len(majors)
     
             return round(((avgDailies * dailyWeight) + (avgMajors * majorWeight))*(1-finalWeight) + (finalw * finalWeight),2) if finalw else round((avgDailies * dailyWeight) + (avgMajors * majorWeight),2)
-    classAvg=float(input("Enter your class average or hit enter to enter dailies and majors individually: "))
+    classAvg=(input("Enter your class average or hit enter to enter dailies and majors individually: "))
     if(classAvg):
         pass
     else:
