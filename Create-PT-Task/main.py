@@ -1,5 +1,5 @@
-print("\033c")
-def calculate(dailies: list=[], majors:list=[], finalw:float = None, dailyWeight:float=None, majorWeight:float=None, finalWeight:float=None, classAvg:float=None):
+def calculate(dailies: list=[], majors:list=[], finalw:float = None, dailyWeight:float=None, 
+              majorWeight:float=None, finalWeight:float=None, classAvg:float=None):
     avgDailies = 0
     avgMajors = 0
     if classAvg:
@@ -14,7 +14,8 @@ def calculate(dailies: list=[], majors:list=[], finalw:float = None, dailyWeight
             avgMajors += float(i)
         avgMajors /= len(majors)
 
-        return round(((avgDailies * dailyWeight) + (avgMajors * majorWeight))*(1-finalWeight) + (finalw * finalWeight),2) if finalw else round((avgDailies * dailyWeight) + (avgMajors * majorWeight),2)
+        return round(((avgDailies * dailyWeight) + (avgMajors * majorWeight))*(1-finalWeight) + 
+                     (finalw * finalWeight),2) if finalw else round((avgDailies * dailyWeight) + (avgMajors * majorWeight),2)
 classAvg=(input("Enter your class average or hit enter to enter dailies and majors individually: "))
 if(classAvg):
     pass
@@ -32,7 +33,10 @@ final = float(input("Enter your final grade(if none, just enter): "))
 if classAvg:
     if final:
         finalWeight = float(input("Enter your final weight: "))
-        print("Your final grade is: " + str(calculate(finalw=final, finalWeight=finalWeight, classAvg=classAvg)))
+        print("Your final grade is: " + 
+              str(calculate(finalw=final, 
+                            finalWeight=finalWeight, 
+                            classAvg=classAvg)))
     else:
         print("Your final grade is: " + str(classAvg))
 elif final:
