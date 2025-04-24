@@ -27,19 +27,17 @@ else:
     majors = kk.split(",")
     majorWeight = float(input("Enter your major weight: "))
 
-final = float(input("Enter your final grade(if none, just enter): "))
+kkk = float(input("Enter your final grade(if none, just enter): "))
 
 if classAvg:
-    if final:
-        final = float(final)
+    if kkk:
         finalWeight = float(input("Enter your final weight: "))
-        print("Your final grade is: " + str(calculate(finalw=final, finalWeight=finalWeight, classAvg=classAvg)))
+        print("Your final grade is: " + str(calculate(finalw=kkk, finalWeight=finalWeight, classAvg=classAvg)))
     else:
         print("Your final grade is: " + str(classAvg))
-elif final:
-    final = float(final)
+elif kkk:
     finalWeight = float(input("Enter your final weight: "))
 
-    print("Your final grade is: " + str(calculate(dailies=dailies, majors=majors, finalw=final, dailyWeight=dailyWeight, majorWeight=majorWeight, finalWeight=finalWeight)))
+    print("Your final grade is: " + str(calculate(dailies=dailies, majors=majors, finalw=kkk, dailyWeight=dailyWeight, majorWeight=majorWeight, finalWeight=finalWeight)))
 else:
     print("Your final grade is: " + str(calculate(dailies=dailies, majors=majors, dailyWeight=dailyWeight, majorWeight=majorWeight)))
