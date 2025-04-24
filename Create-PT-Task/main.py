@@ -1,4 +1,4 @@
-print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+print("\033c")
 def calculate(dailies: list=[], majors:list=[], finalw:float = None, dailyWeight:float=None, majorWeight:float=None, finalWeight:float=None, classAvg:float=None):
     avgDailies = 0
     avgMajors = 0
